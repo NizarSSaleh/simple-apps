@@ -23,13 +23,28 @@ app.get('/app2', (req, res) => {
   res.send('Hello this App 2!')
 });
 
-app.get('/users', (req, res, next) => {
-  const sql = "SELECT * FROM tb_data ORDER BY id desc"
-  connection.query(sql,(error, fields) => {
-      console.log('error', error)
-      res.send(fields)
-  })
+app.get('/users', (req, res) => {
+    const sql = "SELECT * FROM tb_data ORDER BY id DESC";
+
+    connection.query(sql, (err, rows) => {
+
+        if (err) {
+            console.error(err);
+
+            return res.status(500).json({
+                success: false,
+                message: err.message
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            data: rows
+        });
+
+    });
 });
+
 
 app.listen(process.env.APP_PORT, () => {
   console.log(`Example app listening on port ${process.env.APP_PORT}`)
