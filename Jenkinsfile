@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'devops1-nama' }
+    agent { label 'devops1-Nizar' }
 
     stages {
         stage('Pull SCM') {
@@ -34,8 +34,8 @@ pipeline {
                 sonar-scanner \
                     -Dsonar.projectKey=Simple-Apps \
                     -Dsonar.sources=. \
-                    -Dsonar.host.url=http://172.23.x.x:9000 \
-                    -Dsonar.login=token-sonar
+                    -Dsonar.host.url=http://172.23.6.128:9000 \
+                    -Dsonar.login=sqp_a85b30dd84469ce06d9d575487099e463fcad163
                 '''
             }
         }
