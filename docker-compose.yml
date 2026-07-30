@@ -11,8 +11,8 @@ services:
     environment:
       - DB_NAME=training
       - DB_HOST=db
-      - DB_USER=peserta
-      - DB_PASSWORD=password
+      - DB_USER=nizar_db
+      - DB_PASSWORD=Jaringan*123
       - APP_PORT=3306
     volumes:
       - app-data:/app/public/images
